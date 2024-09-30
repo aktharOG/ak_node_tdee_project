@@ -13,7 +13,10 @@ exports.create = (req,res)=>{
         name : req.body.name,
         email : req.body.email,
         gender: req.body.gender,
-        status : req.body.status
+        status : req.body.status,
+        height: req.body.height,
+        width:req.body.width,
+        activity : req.body.activity
     })
 
     // save user in the database

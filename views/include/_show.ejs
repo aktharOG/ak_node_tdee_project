@@ -5,13 +5,19 @@
     <td><%= users[i].email %></td>
     <td><%= users[i].gender %></td>
     <td><%= users[i].status %></td>
-    <td>
-        <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
+    <td><%= users[i].height %></td>
+    <td><%= users[i].width %></td>
+    <td><%= users[i].activity %></td>
+    <td style="display:flex; justify-content:space-between;">
+        <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update vertical-spacing mb-2">
             <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
         </a>
-        <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+        
+        <a class="btn border-shadow delete mt-2px" data-id=<%= users[i]._id%>>
             <span class="text-gradient"><i class="fas fa-times"></i></span>
         </a>
     </td>
+    
+    
 </tr>
 <% } %>

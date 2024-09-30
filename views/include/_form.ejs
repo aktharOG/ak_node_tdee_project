@@ -1,42 +1,92 @@
- <!-- form handling -->
- <form action="/api/users" method="POST" id="add_user">
-    <div class="new_user">
-        <div class="form-group">
-            <label for="name" class="text-light">Name</label>
-            <input type="hidden" name="id" value="">
-            <input type="text" name="name" value="" placeholder="Mark Stoenis">
-        </div>
-        <div class="form-group">
-            <label for="Email" class="text-light">Email</label>
-            <input type="text" name="email" value="" placeholder="example@gmail.com">
-        </div>
-        <div class="form-group">
-            <label for="gender" class="text-light">Gender</label>
-            <div class="radio inline">
-                <input type="radio" id="radio-2" name="gender" value="Male" >
-                <label for="radio-2" class="radio-label">Male</label>
-            </div>
-            <div class="radio inline">
-                <input type="radio" id="radio-3" name="gender" value="Female" >
-                <label for="radio-3" class="radio-label">Female</label>
-            </div>
-        </div>
+<form action="/api/users" method="POST" id="add_user">
+  <div class="new_user">
+      <div class="form-group">
+          <label for="name" class="text-light">Name</label>
+          <input type="hidden" name="id" value="">
+          <input type="text" name="name" value="" placeholder="Mark Stoenis">
+      </div>
+      <div class="form-group">
+          <label for="Email" class="text-light">Email</label>
+          <input type="text" name="email" value="" placeholder="example@gmail.com">
+      </div>
 
-        <div class="form-group">
-            <label for="gender" class="text-light">Status</label>
-            <div class="radio inline">
-                <input type="radio" id="radio-4" name="status" value="Active" >
-                <label for="radio-4" class="radio-label">Active</label>
-            </div>
-            <div class="radio inline">
-                <input type="radio" id="radio-5" name="status" value="Inactive" >
-                <label for="radio-5" class="radio-label">Inactive</label>
-            </div>
-        </div>
+      <!-- Height -->
+      <div class="form-group">
+          <label for="height" class="text-light">Height</label>
+          <input type="text" name="height" value="" placeholder="5.5">
+      </div>
 
-        <div class="form-group">
-            <button type="submit" class="btn text-dark update">Save</button>
-        </div>
+      <!-- Width -->
+      <div class="form-group">
+          <label for="width" class="text-light">Width</label>
+          <input type="text" name="width" value="" placeholder="1.5">
+      </div>
 
-    </div>
+      <!-- Gender -->
+      <div class="form-group">
+          <label for="gender" class="text-light">Gender</label>
+          <div class="radio inline">
+              <input type="radio" id="radio-2" name="gender" value="Male">
+              <label for="radio-2" class="radio-label">Male</label>
+          </div>
+          <div class="radio inline">
+              <input type="radio" id="radio-3" name="gender" value="Female">
+              <label for="radio-3" class="radio-label">Female</label>
+          </div>
+      </div>
+
+      <!-- Status -->
+      <div class="form-group">
+          <label for="status" class="text-light">Status</label>
+          <div class="radio inline">
+              <input type="radio" id="radio-4" name="status" value="Active">
+              <label for="radio-4" class="radio-label">Active</label>
+          </div>
+          <div class="radio inline">
+              <input type="radio" id="radio-5" name="status" value="Inactive">
+              <label for="radio-5" class="radio-label">Inactive</label>
+          </div>
+      </div>
+
+      <!-- Activity Level Dropdown -->
+      <div class="container">
+          <h2>Activity Level</h2>
+          <div class="form-group">
+              <label for="activity-level">Select Your Activity Level</label>
+              <select class="form-control" id="activity-level" name="activity">
+                  <option value="sedentary">Sedentary (Little to no exercise)</option>
+                  <option value="lightly-active">Lightly Active (Light exercise/sports 1-3 days a week)</option>
+                  <option value="moderately-active">Moderately Active (Moderate exercise/sports 3-5 days a week)</option>
+                  <option value="very-active">Very Active (Hard exercise/sports 6-7 days a week)</option>
+                  <option value="super-active">Super Active (Very hard exercise, physical job, or training twice a day)</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <button type="submit" class="btn text-dark update">Save</button>
+      </div>
+  </div>
 </form>
+
+<!-- Script to handle form submission -->
+<script>
+  document.getElementById('add_user').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission for testing
+
+      // Get the selected activity level
+      const selectedActivity = document.getElementById('activity-level').value;
+
+      // Log the selected activity level
+      console.log(`Selected Activity: ${selectedActivity}`);
+
+      // Proceed with the form submission
+      this.submit(); // Uncomment this to allow submission after validation
+  });
+</script>
+
+<!-- Bootstrap CSS & JS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
